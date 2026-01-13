@@ -1,16 +1,16 @@
 import { View, Image } from "react-native";
-import styles from "./preload.styles";
+import styles from "./logo.styles";
 
-const PreloadView = () => {
+const Logo = () => {
     return (
         <View style={styles.container}>
             <Image
-                source={require('@/assets/images/logo.png')}
-                style={styles.icon}
+                source={require("@/assets/images/logo.png")}
+                style={styles.image}
                 resizeMode="contain"
             />
         </View>
     );
 }
 
-export default PreloadView;
+export default Logo;
