@@ -12,9 +12,7 @@ const styles = StyleSheet.create({
     form: {
         backgroundColor: "#FFF",
         paddingTop: 24,
-        paddingLeft: 24,
-        paddingRight: 24,
-        paddingBottom: 18
+        paddingHorizontal: 24,
     },
     footer: {
         flexDirection: "row",
