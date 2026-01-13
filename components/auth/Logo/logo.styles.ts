@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
         marginBottom: 32,
     },
     image: {
-        width: 120,
-        height: 120,
+        width: 90,
+        height: 90,
     }
 });
 

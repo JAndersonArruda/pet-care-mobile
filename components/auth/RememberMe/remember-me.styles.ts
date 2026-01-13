@@ -5,7 +5,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        marginVertical: 16,
+        marginVertical: 10,
+        marginBottom: 35,
+        paddingHorizontal: 40,
     },
     left: {
         flexDirection: "row",
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     forgot: {
         fontSize: 13,
         color: "#F7C548",
-        fontWeight: "500",
+        fontWeight: "600",
     },
 });
 

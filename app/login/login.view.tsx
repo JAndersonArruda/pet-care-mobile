@@ -64,11 +64,13 @@ const LoginView = ({
                         onPress={handleLogin}
                     />
 
+                    <View style={styles.divider} />
+
                     <GoogleButton onPress={handleGoogleLogin} />
                 </View>
 
                 <View style={styles.footer}>
-                    <Text>Não possuí uma conta?</Text>
+                    <Text style={styles.footerText}>Não possuí uma conta?</Text>
                     <TouchableOpacity>
                         <Text style={styles.link}> Inscreva-se agora</Text>
                     </TouchableOpacity>

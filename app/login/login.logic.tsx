@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Alert } from "react-native";
 
 const useLoginLogic = () => {
     // const router = useRouter();
@@ -8,6 +9,14 @@ const useLoginLogic = () => {
     const [remember, setRemember] = useState(false);
 
     function handleLogin() {
+        if (!email.trim()) {
+            Alert.alert("Error", "O campo Email é obrigatório!");
+            return;
+        }
+        if (!password.trim()) {
+            Alert.alert("Error", "O campo Senha é obrigatório!");
+            return;
+        }
         console.log({ email, password, remember });
     }
 
