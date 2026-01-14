@@ -19,6 +19,8 @@ const useLoginLogic = () => {
             return;
         }
         console.log({ email, password, remember });
+
+        router.replace("/home");
     }
 
     function handleToSignUp() {
@@ -28,14 +30,6 @@ const useLoginLogic = () => {
     function handleGoogleLogin() {
         console.log("Login com Google");
     }
-
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         router.replace("/preload");
-    //     }, 5000);
-
-    //     return () => clearTimeout(timer);
-    // }, [router]);
 
     return {
         email,
