@@ -29,6 +29,8 @@ const useSignUpLogic = () => {
             return;
         }
         if (confirmPassword !== password) {
+            setPassword("");
+            setConfirmPassword("");
             Alert.alert("Error", "Confirmação de senha incompatível!");
             return;
         }
