@@ -1,6 +1,6 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "./login.styles";
+import styles from "./signup.styles";
 
 import Logo from "@/components/auth/Logo";
 import InputField from "@/components/auth/InputField";
@@ -8,29 +8,37 @@ import RememberMe from "@/components/auth/RememberMe";
 import PrimaryButton from "@/components/auth/PrimaryButton";
 import GoogleButton from "@/components/auth/GoogleButton";
 
-type LoginViewProps = {
+type SignUpViewProps = {
+    name: string;
     email: string;
     password: string;
+    confirmPassword: string;
     remember: boolean;
+    setName: (value: string) => void;
     setEmail: (value: string) => void;
     setPassword: (value: string) => void;
+    setConfirmPassword: (value: string) => void;
     setRemember: (value: boolean) => void;
-    handleLogin: () => void;
-    handleToSignUp: () => void;
+    handleSignUp: () => void;
+    handleToLogin: () => void;
     handleGoogleLogin: () => void;
 }
 
-const LoginView = ({
+const SignUpView = ({
+    name,
     email,
     password,
+    confirmPassword,
     remember,
+    setName,
     setEmail,
     setPassword,
+    setConfirmPassword,
     setRemember,
-    handleLogin,
-    handleToSignUp,
+    handleSignUp,
+    handleToLogin,
     handleGoogleLogin,
-}: LoginViewProps) => {
+}: SignUpViewProps) => {
     return (
         <SafeAreaView style={styles.safe}>
             <ScrollView contentContainerStyle={styles.container}>
@@ -39,8 +47,16 @@ const LoginView = ({
 
                 <View style={styles.form}>
                     <InputField
+                        label="Nome"
+                        placeholder="Digite seu nome"
+                        icon="person"
+                        value={name}
+                        onChangeText={setName}
+                    />
+
+                    <InputField
                         label="Email"
-                        placeholder="Digite seu e-mail"
+                        placeholder="Digite seu email"
                         icon="mail"
                         value={email}
                         onChangeText={setEmail}
@@ -55,6 +71,15 @@ const LoginView = ({
                         onChangeText={setPassword}
                     />
 
+                    <InputField
+                        label="Confirmar Senha"
+                        placeholder="Confirme sua senha"
+                        icon="shield-checkmark"
+                        secureTextEntry
+                        value={confirmPassword}
+                        onChangeText={setConfirmPassword}
+                    />
+
                     <RememberMe
                         value={remember}
                         onValueChange={setRemember}
@@ -62,8 +87,8 @@ const LoginView = ({
                     />
 
                     <PrimaryButton
-                        title="Entrar"
-                        onPress={handleLogin}
+                        title="Cadastrar"
+                        onPress={handleSignUp}
                     />
 
                     <View style={styles.divider} />
@@ -72,11 +97,11 @@ const LoginView = ({
                 </View>
 
                 <View style={styles.footer}>
-                    <Text style={styles.footerText}>Não possuí uma conta?</Text>
+                    <Text style={styles.footerText}>Já possuí uma conta?</Text>
                     <TouchableOpacity 
-                        onPress={handleToSignUp}
+                        onPress={handleToLogin}
                     >
-                        <Text style={styles.link}> Inscreva-se agora</Text>
+                        <Text style={styles.link}> Acesse agora</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
@@ -84,4 +109,4 @@ const LoginView = ({
     );
 }
 
-export default LoginView;
+export default SignUpView;

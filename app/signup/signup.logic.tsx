@@ -2,14 +2,20 @@ import { useState } from "react";
 import { useRouter } from "expo-router";
 import { Alert } from "react-native";
 
-const useLoginLogic = () => {
+const useSignUpLogic = () => {
     const router = useRouter();
 
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [remember, setRemember] = useState(false);
 
-    function handleLogin() {
+    function handleSignUp() {
+        if (!name.trim()) {
+            Alert.alert("Error", "O campo Nome é obrigatório!");
+            return;
+        }
         if (!email.trim()) {
             Alert.alert("Error", "O campo Email é obrigatório!");
             return;
@@ -18,11 +24,21 @@ const useLoginLogic = () => {
             Alert.alert("Error", "O campo Senha é obrigatório!");
             return;
         }
-        console.log({ email, password, remember });
+        if (!confirmPassword.trim()) {
+            Alert.alert("Error", "O campo Confirmar senha é obrigatório!");
+            return;
+        }
+        if (confirmPassword !== password) {
+            Alert.alert("Error", "Confirmação de senha incompatível!");
+            return;
+        }
+        console.log({ name, email, password, remember });
+
+        handleToLogin();
     }
 
-    function handleToSignUp() {
-        router.replace("/signup");
+    function handleToLogin() {
+        router.replace("/login");
     }
 
     function handleGoogleLogin() {
@@ -38,16 +54,20 @@ const useLoginLogic = () => {
     // }, [router]);
 
     return {
+        name,
         email,
         password,
+        confirmPassword,
         remember,
+        setName,
         setEmail,
         setPassword,
+        setConfirmPassword,
         setRemember,
-        handleLogin,
-        handleToSignUp,
+        handleSignUp,
+        handleToLogin,
         handleGoogleLogin,
     };
 };
 
-export default useLoginLogic;
+export default useSignUpLogic;
