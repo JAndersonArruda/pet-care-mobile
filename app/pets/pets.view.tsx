@@ -1,19 +1,19 @@
 import { Text, View } from "react-native";
-import styles from "./home.styles";
+import styles from "./pets.styles";
 
 import BottomMenu from "@/components/menu/BottomMenu";
 
-const HomeView = () => {
+const PetsView = () => {
     return (
         <View style={styles.container}>
 
             <View style={styles.content}>
-                <Text style={styles.text}>Home</Text>
+                <Text style={styles.text}>Pets</Text>
             </View>
 
-            <BottomMenu initialTabs="home" />
+            <BottomMenu initialTabs="pets" />
         </View>
     );
 };
 
-export default HomeView;
+export default PetsView;

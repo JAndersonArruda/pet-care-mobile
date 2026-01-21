@@ -1,24 +1,23 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    height: 56,
-    backgroundColor: "#1E3A8A", // azul igual da imagem
-  },
-  item: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  activeIndicator: {
-    position: "absolute",
-    bottom: 0,
-    width: 24,
-    height: 3,
-    backgroundColor: "#E53935", // vermelho
-    borderRadius: 2,
-  },
+    container: {
+        flexDirection: "row",
+        height: 56,
+        backgroundColor: "#E3A73D",
+    },
+    item: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    iconWrapper: {
+        paddingBottom: 4,
+    },
+    activeIcon: {
+        borderBottomWidth: 2,
+        borderBottomColor: "#FFF",
+    },
 });
 
 export default styles;

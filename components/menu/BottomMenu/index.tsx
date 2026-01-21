@@ -1,38 +1,42 @@
 import { TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "./bottom-menu.styles";
+import { useRouter } from "expo-router";
 
-export type BottomMenuItem = {
-  key: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  onPress: () => void;
-};
+import styles from "./bottom-menu.styles";
+import useBottomMenuLogic from "./bottom-menu.logic";
 
 type BottomMenuProps = {
-  items: BottomMenuItem[];
-  activeKey: string;
+    initialTabs: string;
 };
 
-const BottomMenu = ({ items, activeKey }: BottomMenuProps) => {
+const BottomMenu = ({ initialTabs }: BottomMenuProps) => {
+    const { menuItems, activeTab, setActiveTab } = useBottomMenuLogic(initialTabs);
+    const router = useRouter();
+
     return (
         <View style={styles.container}>
-            {items.map((item) => {
-                const isActive = item.key === activeKey;
+            {menuItems.map((item) => {
+                const isActive = item.key === activeTab;
+
+                const handlePress = () => {
+                    setActiveTab(item.key);
+                    router.push({ pathname: item.routePath });
+                };
 
                 return (
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         key={item.key}
                         style={styles.item}
-                        onPress={item.onPress}
+                        onPress={handlePress}
                         activeOpacity={.7}
                     >
-                        <Ionicons
-                            name={item.icon}
-                            size={22}
-                            color={isActive ? "#FFF" : "#D6D9E0"}
-                        />
-
-                        {isActive && <View style={styles.activeIndicator} />}
+                        <View style={[styles.iconWrapper, isActive && styles.activeIcon]}>
+                            <Ionicons
+                                name={item.icon}
+                                size={22}
+                                color={isActive ? "#FFF" : "#D6D9E0"}
+                            />
+                        </View>
                     </TouchableOpacity>
                 )
             })}

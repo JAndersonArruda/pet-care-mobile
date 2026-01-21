@@ -1,19 +1,19 @@
 import { Text, View } from "react-native";
-import styles from "./home.styles";
+import styles from "./clinics.styles";
 
 import BottomMenu from "@/components/menu/BottomMenu";
 
-const HomeView = () => {
+const ClinicsView = () => {
     return (
         <View style={styles.container}>
 
             <View style={styles.content}>
-                <Text style={styles.text}>Home</Text>
+                <Text style={styles.text}>Clinics</Text>
             </View>
 
-            <BottomMenu initialTabs="home" />
+            <BottomMenu initialTabs="clinics" />
         </View>
     );
 };
 
-export default HomeView;
+export default ClinicsView;
