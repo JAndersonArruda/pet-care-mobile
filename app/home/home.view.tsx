@@ -1,14 +1,37 @@
-import { Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import styles from "./home.styles";
 
-import BottomMenu from "@/components/menu/BottomMenu";
+import { Service } from "./home.logic";
 
-const HomeView = () => {
+import BottomMenu from "@/components/menu/BottomMenu";
+import Card from "@/components/cards";
+// futuramente:
+// import ServiceDetailsModal from "@/components/modals/ServiceDetailsModal";
+
+interface HomeViewProps {
+    services: Service[],
+    setSelectedService: (service: Service) => void;
+}
+
+const HomeView = ({ services, setSelectedService }: HomeViewProps) => {
     return (
         <View style={styles.container}>
-
             <View style={styles.content}>
-                <Text style={styles.text}>Home</Text>
+                <FlatList
+                    data={services}
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={{ gap: 6 }}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({ item }) => (
+                        <Card
+                            title={item.name}
+                            subtitle={item.price}
+                            image={item.image}
+                            onPress={() => setSelectedService(item)}
+                        />
+                    )}
+                />
+
             </View>
 
             <BottomMenu initialTabs="home" />
