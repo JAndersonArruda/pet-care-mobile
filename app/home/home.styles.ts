@@ -7,10 +7,33 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        paddingHorizontal: 30
+        paddingHorizontal: 20,
     },
-    text: {
-        fontSize: 16,
+    typesWrapper: {
+
+        flexShrink: 0,
+    },
+
+    header: {
+        marginTop: 16,
+        marginBottom: 20,
+    },
+    greeting: {
+        fontSize: 20,
+        fontWeight: "700",
+    },
+    subtitle: {
+        fontSize: 14,
+        color: "#777",
+        marginTop: 4,
+    },
+
+    typesList: {
+        paddingVertical: 20,
+        // alignItems: "center"
+    },
+    servicesList: {
+        marginVertical: 20,
     },
 });
 

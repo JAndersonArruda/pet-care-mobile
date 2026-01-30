@@ -1,14 +1,15 @@
 import { FlatList, View } from "react-native";
 import styles from "./pets.styles";
 
-import { Pet } from "./pets.logic";
+import { Pet } from "@/types/pets";
 
 import BottomMenu from "@/components/menu/BottomMenu";
-import Card from "@/components/cards";
+import ServiceCard from "@/components/cards/ServiceCard";
 
 interface PetsViewProps {
     pets: Pet[];
-    setSelectedPet: (pet: Pet) => void;
+    selectedPet: string;
+    setSelectedPet: (id: string) => void;
 }
 
 const PetsView = ({ pets, setSelectedPet }: PetsViewProps) => {
@@ -18,12 +19,12 @@ const PetsView = ({ pets, setSelectedPet }: PetsViewProps) => {
                 <FlatList
                     data={pets}
                     keyExtractor={(item) => item.id}
-                    contentContainerStyle={{ gap: 12 }}
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.petsList}
                     renderItem={({ item }) => (
-                        <Card
-                            title={item.name}
-                            image={item.image}
-                            onPress={() => setSelectedPet(item)}
+                        <ServiceCard
+                            data={item}
+                            type="pet"
                         />
                     )}
                 />

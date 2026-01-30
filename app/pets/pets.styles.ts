@@ -7,10 +7,13 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
     },
     text: {
         fontSize: 16,
+    },
+    petsList: {
+        marginVertical: 20,
     },
 });
 
