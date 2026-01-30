@@ -1,11 +1,12 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import styles from "./home.styles";
 
 import { Service, ServiceType } from "@/types/services";
 
-import BottomMenu from "@/components/menu/BottomMenu";
-import ServiceTypeCard from "@/components/cards/ServiceTypeCard";
 import ServiceCard from "@/components/cards/ServiceCard";
+import ServiceTypeCard from "@/components/cards/ServiceTypeCard";
+import AppHeader from "@/components/header/AppHeader";
+import BottomMenu from "@/components/menu/BottomMenu";
 // futuramente:
 // import ServiceDetailsModal from "@/components/modals/ServiceDetailsModal";
 
@@ -20,10 +21,7 @@ const HomeView = ({ serviceTypes, services, selectedType, setSelectedType }: Hom
     return (
         <View style={styles.container}>
             {/* Header */}
-            <View style={styles.header}>
-                <Text style={styles.greeting}>Olá 👋</Text>
-                <Text style={styles.subtitle}>Encontre o melhor serviço para seu pet</Text>
-            </View>
+            <AppHeader />
 
             <View style={styles.content}>
                 <View style={styles.typesWrapper}>

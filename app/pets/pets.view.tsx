@@ -3,8 +3,9 @@ import styles from "./pets.styles";
 
 import { Pet } from "@/types/pets";
 
-import BottomMenu from "@/components/menu/BottomMenu";
 import ServiceCard from "@/components/cards/ServiceCard";
+import AppHeader from "@/components/header/AppHeader";
+import BottomMenu from "@/components/menu/BottomMenu";
 
 interface PetsViewProps {
     pets: Pet[];
@@ -15,6 +16,9 @@ interface PetsViewProps {
 const PetsView = ({ pets, setSelectedPet }: PetsViewProps) => {
     return (
         <View style={styles.container}>
+            
+            <AppHeader />
+
             <View style={styles.content}>
                 <FlatList
                     data={pets}
