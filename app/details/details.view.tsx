@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import styles from "./details.styles";
 
 import { Service } from "@/types/services";
@@ -8,15 +8,19 @@ import AppHeader from "@/components/header/AppHeader";
 
 type DetailsViewProps =
     | {
-        type: "service",
-        data: Service
+        type: "service";
+        data: Service;
+        onOpenSchedule: () => void;
+        onOpenEditPet?: never;
     }
     | {
-        type: "pet",
-        data: Pet
+        type: "pet";
+        data: Pet;
+        onOpenEditPet: () => void;
+        onOpenSchedule?: never;
     }
 
-const DetailsView = ({ data, type }: DetailsViewProps) => {
+const DetailsView = ({ data, type, onOpenSchedule, onOpenEditPet }: DetailsViewProps) => {
     if (!data) {
         return (
             <View style={styles.container}>
@@ -34,7 +38,18 @@ const DetailsView = ({ data, type }: DetailsViewProps) => {
             <Image source={{ uri: data.image }} style={styles.image} />
 
             <View style={styles.content}>
-                <Text style={styles.title}>{data.name}</Text>
+                <View style={styles.titleRow}>
+                    <Text style={styles.title}>{data.name}</Text>
+
+                    <Pressable 
+                        style={styles.scheduleButton} 
+                        onPress={type === "service" ? onOpenSchedule : onOpenEditPet}
+                    >
+                        <Text style={styles.scheduleButtonText}>
+                            {type === "service" ? "Agendar" : "Editar"}
+                        </Text>
+                    </Pressable>
+                </View>
 
                 {type === "service" ? (
                     <>

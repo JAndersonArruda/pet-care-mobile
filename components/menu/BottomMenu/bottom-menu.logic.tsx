@@ -14,7 +14,7 @@ const useBottomMenuLogic = (initialTab: string = "home") => {
         { key: "home", icon: "home-outline", routePath: "/home" },
         { key: "grid", icon: "grid-outline", routePath: "/grid" },
         { key: "pets", icon: "paw-outline", routePath: "/pets" },
-        { key: "clinics", icon: "pulse-outline", routePath: "/clinics" },
+        { key: "appointments", icon: "pulse-outline", routePath: "appointments" },
         { key: "profile", icon: "person-outline", routePath: "/profile" },
     ];
 

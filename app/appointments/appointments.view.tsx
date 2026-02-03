@@ -1,14 +1,14 @@
 import { Text, View } from "react-native";
-import styles from "./clinics.styles";
+import styles from "./appointments.styles";
 
 import BottomMenu from "@/components/menu/BottomMenu";
 
-const ClinicsView = () => {
+const AppointmentsView = () => {
     return (
         <View style={styles.container}>
 
             <View style={styles.content}>
-                <Text style={styles.text}>Clinics</Text>
+                <Text style={styles.text}>Appointments</Text>
             </View>
 
             <BottomMenu initialTabs="clinics" />
@@ -16,4 +16,4 @@ const ClinicsView = () => {
     );
 };
 
-export default ClinicsView;
+export default AppointmentsView;
