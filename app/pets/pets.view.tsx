@@ -3,7 +3,7 @@ import styles from "./pets.styles";
 
 import { Pet } from "@/types/pets";
 
-import ServiceCard from "@/components/cards/ServiceCard";
+import PetCard from "@/components/cards/Card";
 import AppHeader from "@/components/header/AppHeader";
 import BottomMenu from "@/components/menu/BottomMenu";
 
@@ -26,7 +26,7 @@ const PetsView = ({ pets, setSelectedPet }: PetsViewProps) => {
                     showsHorizontalScrollIndicator={false}
                     contentContainerStyle={styles.petsList}
                     renderItem={({ item }) => (
-                        <ServiceCard
+                        <PetCard
                             data={item}
                             type="pet"
                         />

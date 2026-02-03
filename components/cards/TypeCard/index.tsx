@@ -1,5 +1,5 @@
 import { Image, Text, TouchableOpacity } from "react-native";
-import styles from "./service-type-card.styles";
+import styles from "./type-card.styles";
 
 import { ServiceType } from "@/types/services";
 
@@ -9,7 +9,7 @@ interface ServiceTypeProps {
     onPress: () => void;
 }
 
-const ServiceTypeCard = ({ data, selected, onPress }: ServiceTypeProps) => {
+const TypeCard = ({ data, selected, onPress }: ServiceTypeProps) => {
     return (
         <TouchableOpacity
             style={[styles.card, selected && styles.selected]}
@@ -21,4 +21,4 @@ const ServiceTypeCard = ({ data, selected, onPress }: ServiceTypeProps) => {
     );
 };
 
-export default ServiceTypeCard;
+export default TypeCard;

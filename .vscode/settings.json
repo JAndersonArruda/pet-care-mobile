@@ -3,5 +3,6 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
-  }
+  },
+  "cmake.sourceDirectory": "/home/jose-arruda/Projects/pet-care-mobile/node_modules/expo-modules-core/android/src/fabric"
 }

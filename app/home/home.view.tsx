@@ -3,12 +3,10 @@ import styles from "./home.styles";
 
 import { Service, ServiceType } from "@/types/services";
 
-import ServiceCard from "@/components/cards/ServiceCard";
-import ServiceTypeCard from "@/components/cards/ServiceTypeCard";
+import ServiceCard from "@/components/cards/Card";
+import ServiceTypeCard from "@/components/cards/TypeCard";
 import AppHeader from "@/components/header/AppHeader";
 import BottomMenu from "@/components/menu/BottomMenu";
-// futuramente:
-// import ServiceDetailsModal from "@/components/modals/ServiceDetailsModal";
 
 interface HomeViewProps {
     serviceTypes: ServiceType[];
