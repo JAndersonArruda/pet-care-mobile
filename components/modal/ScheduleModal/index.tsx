@@ -2,8 +2,10 @@ import { Modal, View, Text, Pressable } from "react-native";
 import styles from "./schedule-modal.styles";
 
 import { AvailableSlot } from "@/types/availableSlot";
+import { Pet } from "@/types/pets";
 
 import AvailableSlotsModal from "../AvailableSlotsModal";
+import PetSelectModal from "../PetSelectModal";
 
 type ScheduleModalProps = {
     visible: boolean;
@@ -14,17 +16,27 @@ type ScheduleModalProps = {
     setSelectedSlot: (slot: AvailableSlot) => void;
     showSlots: boolean;
     setShowSlots: (value: boolean) => void;
+    pets: Pet[];
+    selectedPet: Pet | null;
+    setSelectedPet: (pet: Pet) => void;
+    showPets: boolean;
+    setShowPets: (value: boolean) => void;
 };
 
-const ScheduleModal = ({ 
-    visible, 
-    onClose, 
-    onConfirm, 
+const ScheduleModal = ({
+    visible,
+    onClose,
+    onConfirm,
     availableSlots,
-    selectedSlot, 
-    setSelectedSlot, 
-    showSlots, 
-    setShowSlots 
+    selectedSlot,
+    setSelectedSlot,
+    showSlots,
+    setShowSlots,
+    pets,
+    selectedPet,
+    setSelectedPet,
+    showPets,
+    setShowPets
 }: ScheduleModalProps) => {
     return (
         <Modal
@@ -34,7 +46,7 @@ const ScheduleModal = ({
         >
             <View style={styles.overlay}>
                 <View style={styles.container}>
-                    <Text style={styles.title}>Editar Pet</Text>
+                    <Text style={styles.title}>Agendar serviço</Text>
 
                     <View style={styles.row}>
                         <View style={styles.field}>
@@ -55,8 +67,8 @@ const ScheduleModal = ({
                     <View style={styles.row}>
                         <View style={styles.field}>
                             <Text style={styles.label}>Data e horário</Text>
-                            <Pressable 
-                                style={styles.select} 
+                            <Pressable
+                                style={styles.select}
                                 onPress={() => setShowSlots(true)}
                             >
                                 <Text style={styles.value}>
@@ -75,9 +87,14 @@ const ScheduleModal = ({
 
                     <View style={styles.fieldFull}>
                         <Text style={styles.label}>Pet</Text>
-                        <View style={styles.select}>
-                            <Text style={styles.value}>Thor • Labrador</Text>
-                        </View>
+                        <Pressable
+                            style={styles.select}
+                            onPress={() => setShowPets(true)}
+                        >
+                            <Text style={styles.value}>
+                                {selectedPet ? `${selectedPet.name} • ${selectedPet.breed}` : "Selecionar"}
+                            </Text>
+                        </Pressable>
                     </View>
 
                     <View style={styles.actions}>
@@ -85,13 +102,13 @@ const ScheduleModal = ({
                             <Text style={styles.cancel}>Cancelar</Text>
                         </Pressable>
 
-                        <Pressable 
-                            onPress={onConfirm}  
+                        <Pressable
+                            onPress={onConfirm}
                             disabled={!selectedSlot}
                         >
                             <Text style={[
-                                styles.confirm, 
-                                !selectedSlot && { opacity: 0.5 }
+                                styles.confirm,
+                                (!selectedSlot || !selectedPet ) && { opacity: 0.5 }
                             ]}>Confirmar</Text>
                         </Pressable>
                     </View>
@@ -108,6 +125,19 @@ const ScheduleModal = ({
                     }}
                     onClose={() => setShowSlots(false)}
                 />
+
+                {/* Modal de pets */}
+                <PetSelectModal
+                    visible={showPets}
+                    pets={pets}
+                    selectedPet={selectedPet}
+                    onSelect={(pet) => {
+                        setSelectedPet(pet);
+                        setShowPets(false);
+                    }}
+                    onClose={() => setShowPets(false)}
+                />
+
             </View>
         </Modal>
     );

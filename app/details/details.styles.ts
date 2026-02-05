@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     scheduleButton: {
-        backgroundColor: "#6A4DFF",
+        backgroundColor: "#E3A73D",
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 20,

@@ -38,6 +38,7 @@ const useDetailsLogic = () => {
     return {
         data,
         type,
+        pets
     };
 };
 

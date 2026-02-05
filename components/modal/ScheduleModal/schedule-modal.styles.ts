@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
     confirm: {
         fontSize: 16,
-        backgroundColor: "#6A4DFF",
+        backgroundColor: "#E3A73D",
         color: "#FFF",
         fontWeight: "700",
         paddingVertical: 10,

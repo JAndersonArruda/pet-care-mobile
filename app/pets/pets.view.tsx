@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { FlatList, Pressable, Text, View } from "react-native";
 import styles from "./pets.styles";
 
 import { Pet } from "@/types/pets";
@@ -9,13 +9,14 @@ import BottomMenu from "@/components/menu/BottomMenu";
 
 interface PetsViewProps {
     pets: Pet[];
+    onCreatePet: () => void;
     selectedPet: string;
 }
 
-const PetsView = ({ pets }: PetsViewProps) => {
+const PetsView = ({ pets, onCreatePet }: PetsViewProps) => {
     return (
         <View style={styles.container}>
-            
+
             <AppHeader />
 
             <View style={styles.content}>
@@ -34,6 +35,12 @@ const PetsView = ({ pets }: PetsViewProps) => {
 
             </View>
 
+            <Pressable
+                style={styles.fab}
+                onPress={onCreatePet}
+            >
+                <Text style={styles.fabIcon}>+</Text>
+            </Pressable>
             <BottomMenu initialTabs="pets" />
         </View>
     );
