@@ -7,7 +7,7 @@ const usePreloadLogic = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             if (true) router.replace('/login');
-        }, 9000);
+        }, 5000);
 
         return () => clearTimeout(timer);
     }, [router]);

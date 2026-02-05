@@ -18,8 +18,6 @@ const useDetailsLogic = () => {
     const { id, type } = useLocalSearchParams<ParamsProps>();
     const [data, setData] = useState<DataType>(null);
 
-    console.log(id + " " + type);
-
     useEffect(() => {
 
         if (type === "service") {
