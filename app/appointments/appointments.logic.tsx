@@ -12,5 +12,4 @@ const useAppointmentsLogic = () => {
     };
 };
 
-
 export default useAppointmentsLogic;
