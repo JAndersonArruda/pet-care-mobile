@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
+import { useState } from "react";
 import styles from "./appointment-row.styles";
 
 import { Appointment } from "@/types/appointments";
