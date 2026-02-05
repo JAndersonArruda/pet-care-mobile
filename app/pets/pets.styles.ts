@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     },
     petsList: {
         marginVertical: 20,
+        paddingBottom: 20,
     },
 });
 

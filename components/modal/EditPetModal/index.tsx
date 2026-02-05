@@ -19,18 +19,21 @@ const EditPetModal = ({ visible, pet, onClose, onConfirm }: EditPetModalProps) =
                 <View style={styles.container}>
                     <Text style={styles.title}>Editar Pet</Text>
 
+                    <Text style={styles.label}>Nome</Text>
                     <TextInput
                         style={styles.input}
                         defaultValue={pet.name}
                         placeholder="Nome"
                     />
 
+                    <Text style={styles.label}>Raça</Text>
                     <TextInput
                         style={styles.input}
                         defaultValue={pet.breed}
                         placeholder="Raça"
                     />
 
+                    <Text style={styles.label}>Idade</Text>
                     <TextInput
                         style={styles.input}
                         defaultValue={pet.age}

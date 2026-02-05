@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: "100%",
-        height: 320,
+        height: 500,
         resizeMode: "cover",
     },
     content: {
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     },
     scheduleButton: {
         backgroundColor: "#6A4DFF",
-        paddingHorizontal: 14,
-        paddingVertical: 6,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
         borderRadius: 20,
 
          // 🔹 Sombra (iOS)

@@ -10,10 +10,9 @@ import BottomMenu from "@/components/menu/BottomMenu";
 interface PetsViewProps {
     pets: Pet[];
     selectedPet: string;
-    setSelectedPet: (id: string) => void;
 }
 
-const PetsView = ({ pets, setSelectedPet }: PetsViewProps) => {
+const PetsView = ({ pets }: PetsViewProps) => {
     return (
         <View style={styles.container}>
             
@@ -23,7 +22,7 @@ const PetsView = ({ pets, setSelectedPet }: PetsViewProps) => {
                 <FlatList
                     data={pets}
                     keyExtractor={(item) => item.id}
-                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.petsList}
                     renderItem={({ item }) => (
                         <PetCard

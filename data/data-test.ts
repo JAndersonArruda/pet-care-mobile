@@ -1,5 +1,6 @@
 import { Service, ServiceType } from "@/types/services";
 import { Pet } from "@/types/pets";
+import { AvailableSlot } from "@/types/availableSlot";
 
 export const serviceTypes: ServiceType[] = [
     {
@@ -274,4 +275,11 @@ export const pets: Pet[] = [
         sex: "Macho",
         description: "Não venenosa, tranquila e muito observadora",
     },
+];
+
+export const availableSlots: AvailableSlot[] = [
+    { id: "1", label: "20/02 • 14:30" },
+    { id: "2", label: "20/02 • 16:00" },
+    { id: "3", label: "21/02 • 09:00" },
+    { id: "4", label: "21/02 • 10:30" },
 ];

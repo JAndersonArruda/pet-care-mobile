@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     },
     servicesList: {
         marginVertical: 20,
+        paddingBottom: 20,
     },
 });
 

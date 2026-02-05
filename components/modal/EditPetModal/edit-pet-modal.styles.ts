@@ -12,40 +12,62 @@ const styles = StyleSheet.create({
         padding: 20,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
+        paddingBottom: 30,
     },
 
     title: {
         fontSize: 18,
         fontWeight: "700",
         color: "#222",
-        marginBottom: 16,
+        marginBottom: 18,
+        textAlign: "center",
+        paddingVertical: 10,
+    },
+
+    label: {
+        fontSize: 13,
+        color: "#777",
+        marginBottom: 4,
+        marginLeft: 14,
     },
 
     input: {
         backgroundColor: "#F2F2F2",
-        borderRadius: 10,
-        paddingHorizontal: 14,
-        paddingVertical: 10,
+        borderRadius: 25,
+        paddingHorizontal: 15,
+        paddingVertical: 15,
         fontSize: 15,
         color: "#222",
-        marginBottom: 12,
+        marginBottom: 20,
     },
 
     actions: {
         flexDirection: "row",
         justifyContent: "space-between",
         marginTop: 24,
+        marginHorizontal: 14,
     },
 
     cancel: {
         fontSize: 16,
-        color: "#999",
+        backgroundColor: "#999",
+        color: "#FFF",
+        fontWeight: "700",
+        paddingVertical: 10,
+        width: 120,
+        borderRadius: 20,
+        textAlign: "center",
     },
 
     confirm: {
         fontSize: 16,
-        color: "#6A4DFF",
+        backgroundColor: "#6A4DFF",
+        color: "#FFF",
         fontWeight: "700",
+        paddingVertical: 10,
+        width: 120,
+        borderRadius: 20,
+        textAlign: "center",
     },
 });
 

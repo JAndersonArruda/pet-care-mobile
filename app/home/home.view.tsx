@@ -44,7 +44,7 @@ const HomeView = ({ serviceTypes, services, selectedType, setSelectedType }: Hom
                 <FlatList
                     data={services}
                     keyExtractor={(item) => item.id}
-                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.servicesList}
                     renderItem={({ item }) => (
                         <ServiceCard 
