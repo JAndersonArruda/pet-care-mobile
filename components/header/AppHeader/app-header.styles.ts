@@ -6,8 +6,9 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         paddingHorizontal: 20,
-        paddingTop: 15,
-        paddingBottom: 10,
+        paddingTop: 45,
+        paddingBottom: 15,
+        backgroundColor: "#FFF",
 
         // 🔹 Borda
         borderWidth: 1,
@@ -36,15 +37,15 @@ const styles = StyleSheet.create({
     },
 
     iconContainer: {
-        width: 42,
-        height: 42,
+        width: 40,
+        height: 40,
         borderRadius: 21,
         backgroundColor: "#E3A73D",
         justifyContent: "center",
         alignItems: "center",
     },
     icon: {
-        fontSize: 22,
+        fontSize: 20,
         color: "#fff",
     },
 });

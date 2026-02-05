@@ -4,7 +4,7 @@ import { useState } from "react";
 export type BottomMenuItem = {
     key: string;
     icon: keyof typeof Ionicons.glyphMap;
-    routePath: "/home" | "/pets" | "/grid" | "/profile" | "/clinics";
+    routePath: "/home" | "/pets" | "/grid" | "/profile" | "/appointments";
 };
 
 const useBottomMenuLogic = (initialTab: string = "home") => {
@@ -14,7 +14,7 @@ const useBottomMenuLogic = (initialTab: string = "home") => {
         { key: "home", icon: "home-outline", routePath: "/home" },
         { key: "grid", icon: "grid-outline", routePath: "/grid" },
         { key: "pets", icon: "paw-outline", routePath: "/pets" },
-        { key: "appointments", icon: "pulse-outline", routePath: "appointments" },
+        { key: "appointments", icon: "pulse-outline", routePath: "/appointments" },
         { key: "profile", icon: "person-outline", routePath: "/profile" },
     ];
 
