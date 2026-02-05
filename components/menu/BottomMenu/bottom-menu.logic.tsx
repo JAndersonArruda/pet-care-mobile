@@ -12,7 +12,7 @@ const useBottomMenuLogic = (initialTab: string = "home") => {
 
     const menuItems: BottomMenuItem[] = [
         { key: "home", icon: "home-outline", routePath: "/home" },
-        { key: "grid", icon: "grid-outline", routePath: "/grid" },
+        // { key: "grid", icon: "grid-outline", routePath: "/grid" },
         { key: "pets", icon: "paw-outline", routePath: "/pets" },
         { key: "appointments", icon: "pulse-outline", routePath: "/appointments" },
         { key: "profile", icon: "person-outline", routePath: "/profile" },
