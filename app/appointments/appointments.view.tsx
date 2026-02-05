@@ -20,10 +20,11 @@ const AppointmentsView = ({ appointments }: AppointmentsViewProps) => {
                 data={appointments}
                 showsVerticalScrollIndicator={false}
                 keyExtractor={(item) => item.id}
-                renderItem={({ item }) => <AppointmentRow item={item} />}
+                renderItem={({ item }) =>
+                    <AppointmentRow item={item} />
+                }
                 contentContainerStyle={styles.list}
             />
-
 
             <BottomMenu initialTabs="appointments" />
         </View>

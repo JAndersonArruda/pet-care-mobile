@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         flex: 2,
     },
     colDate: {
-        flex: 1.6,
+        flex: 1.8,
     },
     colStatus: {
         flex: 1.4,
