@@ -1,6 +1,7 @@
 import { Service, ServiceType } from "@/types/services";
 import { Pet } from "@/types/pets";
 import { AvailableSlot } from "@/types/availableSlot";
+import { Appointment } from "@/types/appointments";
 
 export const serviceTypes: ServiceType[] = [
     {
@@ -282,4 +283,23 @@ export const availableSlots: AvailableSlot[] = [
     { id: "2", label: "20/02 • 16:00" },
     { id: "3", label: "21/02 • 09:00" },
     { id: "4", label: "21/02 • 10:30" },
+];
+
+export const mockAppointments: Appointment[] = [
+    {
+        id: "1",
+        petName: "Rex",
+        service: "Banho",
+        clinic: "Pet Love",
+        datetime: "12/07/2025 - 14h",
+        status: "PENDENTE",
+    },
+    {
+        id: "2",
+        petName: "Nina",
+        service: "Vacina",
+        clinic: "Vet Clinic",
+        datetime: "12/07/2025 - 14h",
+        status: "CONCLUIDO",
+    },
 ];
