@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -47,41 +46,74 @@ const styles = StyleSheet.create({
     petWrapper: {
         marginBottom: 12,
     },
-    deleteButton: {
-        alignSelf: "flex-end",
-        marginTop: 4,
-        backgroundColor: "#E53935",
-        paddingVertical: 6,
-        paddingHorizontal: 13,
-        borderRadius: 20,
-    },
-    deleteText: {
-        color: "#fff",
-        fontSize: 12,
-        fontWeight: 600,
+    serviceWrapper: {
+        marginBottom: 12,
     },
     servicesHeader: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        marginVertical: 8,
+        marginVertical: 15,
+    },
+    contentAddService: {
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#E3A73D",
+        borderRadius: 30,
+        paddingVertical: 6,
+        paddingHorizontal: 16,
     },
     addService: {
-        color: "#1DB954",
-        fontWeight: "600",
+        color: "#FFF",
+        fontWeight: "700",
+        fontSize: 13,
+        marginTop: 0,
     },
-    serviceWrapper: {
+    cardContainer: {
+        position: "relative",
         marginBottom: 12,
     },
-    serviceActions: {
+    overlayActions: {
+        position: "absolute",
+        top: 10,
+        right: 65,
         flexDirection: "row",
-        justifyContent: "flex-end",
-        gap: 16,
-        marginTop: 4,
+        gap: 8,
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        // borderRadius: 20,
+        // elevation: 4,
     },
-    edit: {
-        color: "#1976D2",
-        fontSize: 13,
+
+    overlayDeleteButton: {
+        position: "absolute",
+        backgroundColor: "#E53935",
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 20,
+        elevation: 4,
+    },
+
+    overlayEditButton: {
+        position: "absolute",
+        right: 15,
+        backgroundColor: "#1976D2",
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 20,
+        elevation: 4,
+    },
+
+    overlayEditText: {
+        color: "#FFF",
+        fontSize: 12,
+        fontWeight: "600",
+    },
+
+    overlayDeleteText: {
+        color: "#FFF",
+        fontSize: 12,
+        fontWeight: "600",
     },
 });
 

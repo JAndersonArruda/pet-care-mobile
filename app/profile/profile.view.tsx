@@ -44,11 +44,13 @@ const ProfileView = ({ userType, user, pets, clinic, services }: ProfileViewProp
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false}
                         renderItem={({ item }) => (
-                            <View style={styles.petWrapper}>
+                            <View style={styles.cardContainer}>
                                 <Card type="pet" data={item} />
-                                <Pressable style={styles.deleteButton}>
-                                    <Text style={styles.deleteText}>Excluir</Text>
-                                </Pressable>
+                                <View style={styles.overlayActions}>
+                                    <Pressable style={styles.overlayDeleteButton}>
+                                        <Text style={styles.overlayDeleteText}>Excluir</Text>
+                                    </Pressable>
+                                </View>
                             </View>
                         )}
                     />
@@ -61,10 +63,9 @@ const ProfileView = ({ userType, user, pets, clinic, services }: ProfileViewProp
                     <Text style={styles.sectionTitle}>{clinic.name}</Text>
                     <Text style={styles.address}>{clinic.address}</Text>
 
-
                     <View style={styles.servicesHeader}>
                         <Text style={styles.sectionTitle}>Serviços</Text>
-                        <Pressable>
+                        <Pressable style={styles.contentAddService}>
                             <Text style={styles.addService}>+ Adicionar</Text>
                         </Pressable>
                     </View>
@@ -75,14 +76,15 @@ const ProfileView = ({ userType, user, pets, clinic, services }: ProfileViewProp
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false}
                         renderItem={({ item }) => (
-                            <View style={styles.serviceWrapper}>
+                            <View style={styles.cardContainer}>
                                 <Card type="service" data={item} />
-                                <View style={styles.serviceActions}>
-                                    <Pressable>
-                                        <Text style={styles.edit}>Editar</Text>
+
+                                <View style={styles.overlayActions}>
+                                    <Pressable style={styles.overlayEditButton}>
+                                        <Text style={styles.overlayEditText}>Editar</Text>
                                     </Pressable>
-                                    <Pressable>
-                                        <Text style={styles.deleteText}>Excluir</Text>
+                                    <Pressable style={styles.overlayDeleteButton}>
+                                        <Text style={styles.overlayDeleteText}>Excluir</Text>
                                     </Pressable>
                                 </View>
                             </View>

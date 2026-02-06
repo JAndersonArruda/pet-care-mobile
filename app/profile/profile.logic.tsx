@@ -5,7 +5,7 @@ import { pets, services } from "@/data/data-test";
 export type UserType = "client" | "admin";
 
 const useProfileLogic = () => {
-    const [userType] = useState<UserType>("client"); // trocar para 'admin' quando necessário
+    const [userType] = useState<UserType>("admin"); // trocar para 'admin' quando necessário
 
     const user = {
         name: "Anderson Arruda",
@@ -18,7 +18,6 @@ const useProfileLogic = () => {
         name: "Pet Love Clínica",
         address: "Av. Central, 456 - São Paulo/SP",
     };
-
 
     return {
         userType,
