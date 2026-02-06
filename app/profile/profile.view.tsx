@@ -3,24 +3,38 @@ import styles from "./profile.styles";
 
 import { UserType } from "./profile.logic";
 import { Service } from "@/types/services";
+import { Pet } from "@/types/pets";
+import { Clinic } from "@/types/clinic";
 
 import BottomMenu from "@/components/menu/BottomMenu";
 import AppHeader from "@/components/header/AppHeader";
 import Card from "@/components/cards/Card";
-import { Pet } from "@/types/pets";
 
 interface ProfileViewProps {
     userType: UserType;
     user: any;
     pets: Pet[];
-    clinic: any;
+    clinic: Clinic;
     services: Service[];
     onCreateService: () => void;
     onEditService: (service: Service) => void;
+    onCreateClinic: () => void;
+    onEditClinic: () => void;
     onDelete: (type: "pet" | "service", id: string) => void;
 }
 
-const ProfileView = ({ userType, user, pets, clinic, services, onCreateService, onEditService, onDelete }: ProfileViewProps) => {
+const ProfileView = ({
+    userType,
+    user,
+    pets,
+    clinic,
+    services,
+    onCreateService,
+    onEditService,
+    onCreateClinic,
+    onEditClinic,
+    onDelete,
+}: ProfileViewProps) => {
     return (
         <View style={styles.container}>
             <AppHeader />
@@ -71,13 +85,53 @@ const ProfileView = ({ userType, user, pets, clinic, services, onCreateService, 
             {/* ADMIN */}
             {userType === "admin" && (
                 <View style={styles.section}>
-                    <Text style={styles.sectionTitle}>{clinic.name}</Text>
-                    <Text style={styles.address}>{clinic.address}</Text>
+                    <View style={styles.clinicHeader}>
+                        {clinic ? (
+                            <>
+                                <View>
+                                    <Text style={styles.sectionTitle}>{clinic.name}</Text>
+                                    {clinic && <Text style={styles.address}>{clinic.address}</Text>}
+                                </View>
+
+                                <View style={{ flexDirection: "row", gap: 6 }}>
+                                    <Pressable
+                                        style={styles.contentAdd}
+                                        onPress={onCreateClinic}
+                                    >
+                                        <Text style={styles.addService}>+ Nova</Text>
+                                    </Pressable>
+
+                                    <Pressable
+                                        style={styles.contentEdit}
+                                        onPress={onEditClinic}
+                                    >
+                                        <Text style={styles.overlayEditText}>Editar</Text>
+                                    </Pressable>
+                                </View>
+                            </>
+
+                        ) : (
+
+                            <>
+                                <Text style={{ fontSize: 14, color: "#777" }}>
+                                    Cadastre sua clínica
+                                </Text>
+
+                                <Pressable
+                                    style={styles.contentAdd}
+                                    onPress={onCreateClinic}
+                                >
+                                    <Text style={styles.addService}>+ Nova</Text>
+                                </Pressable>
+                            </>
+                        )}
+                    </View>
+
 
                     <View style={styles.servicesHeader}>
                         <Text style={styles.sectionTitle}>Serviços</Text>
                         <Pressable
-                            style={styles.contentAddService}
+                            style={styles.contentAdd}
                             onPress={onCreateService}
                         >
                             <Text style={styles.addService}>+ Adicionar</Text>

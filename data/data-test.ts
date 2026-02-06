@@ -2,6 +2,7 @@ import { Service, ServiceType } from "@/types/services";
 import { Pet } from "@/types/pets";
 import { AvailableSlot } from "@/types/availableSlot";
 import { Appointment } from "@/types/appointments";
+import { Clinic } from "@/types/clinic";
 
 export const serviceTypes: ServiceType[] = [
     {
@@ -415,7 +416,9 @@ export const user = {
     avatar: "https://cdn-icons-png.flaticon.com/512/847/847969.png",
 };
 
-export const clinic = {
+export const clinic: Clinic = {
+    id: "1",
     name: "Pet Love Clínica",
     address: "Av. Central, 456 - São Paulo/SP",
 };
+

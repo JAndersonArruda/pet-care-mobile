@@ -38,10 +38,21 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 16,
     },
+    clinicHeader: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        // marginBottom: 12,
+        borderBottomWidth: 1,
+        padding: 16,
+        marginHorizontal: -16,
+        marginTop: -16,
+        borderBottomColor: "#EEE",
+    },
     sectionTitle: {
         fontSize: 16,
         fontWeight: "600",
-        marginBottom: 8,
+        marginBottom: 4,
     },
     petWrapper: {
         marginBottom: 12,
@@ -55,10 +66,18 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginVertical: 15,
     },
-    contentAddService: {
+    contentAdd: {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#E3A73D",
+        borderRadius: 30,
+        paddingVertical: 6,
+        paddingHorizontal: 16,
+    },
+    contentEdit: {
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#1976D2",
         borderRadius: 30,
         paddingVertical: 6,
         paddingHorizontal: 16,
