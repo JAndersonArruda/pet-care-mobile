@@ -41,6 +41,7 @@ const PetsView = ({ pets, onCreatePet }: PetsViewProps) => {
             >
                 <Text style={styles.fabIcon}>+</Text>
             </Pressable>
+            
             <BottomMenu initialTabs="pets" />
         </View>
     );

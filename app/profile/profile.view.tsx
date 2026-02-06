@@ -2,6 +2,7 @@ import { FlatList, Image, Pressable, Text, View } from "react-native";
 import styles from "./profile.styles";
 
 import { UserType } from "./profile.logic";
+import { Service } from "@/types/services";
 
 import BottomMenu from "@/components/menu/BottomMenu";
 import AppHeader from "@/components/header/AppHeader";
@@ -13,9 +14,12 @@ interface ProfileViewProps {
     pets: any[];
     clinic: any;
     services: any[];
+    onCreateService: () => void;
+    onEditService: (service: Service) => void;
+    onDelete: (type: "pet" | "service", id: string) => void;
 }
 
-const ProfileView = ({ userType, user, pets, clinic, services }: ProfileViewProps) => {
+const ProfileView = ({ userType, user, pets, clinic, services, onCreateService, onEditService, onDelete }: ProfileViewProps) => {
     return (
         <View style={styles.container}>
             <AppHeader />
@@ -47,7 +51,13 @@ const ProfileView = ({ userType, user, pets, clinic, services }: ProfileViewProp
                             <View style={styles.cardContainer}>
                                 <Card type="pet" data={item} />
                                 <View style={styles.overlayActions}>
-                                    <Pressable style={styles.overlayDeleteButton}>
+                                    <Pressable
+                                        style={styles.overlayDeleteButton}
+                                        onPress={(event) => {
+                                            event.stopPropagation();
+                                            onDelete("pet", item.id);
+                                        }}
+                                    >
                                         <Text style={styles.overlayDeleteText}>Excluir</Text>
                                     </Pressable>
                                 </View>
@@ -65,7 +75,10 @@ const ProfileView = ({ userType, user, pets, clinic, services }: ProfileViewProp
 
                     <View style={styles.servicesHeader}>
                         <Text style={styles.sectionTitle}>Serviços</Text>
-                        <Pressable style={styles.contentAddService}>
+                        <Pressable
+                            style={styles.contentAddService}
+                            onPress={onCreateService}
+                        >
                             <Text style={styles.addService}>+ Adicionar</Text>
                         </Pressable>
                     </View>
@@ -80,10 +93,19 @@ const ProfileView = ({ userType, user, pets, clinic, services }: ProfileViewProp
                                 <Card type="service" data={item} />
 
                                 <View style={styles.overlayActions}>
-                                    <Pressable style={styles.overlayEditButton}>
+                                    <Pressable
+                                        style={styles.overlayEditButton}
+                                        onPress={() => onEditService(item)}
+                                    >
                                         <Text style={styles.overlayEditText}>Editar</Text>
                                     </Pressable>
-                                    <Pressable style={styles.overlayDeleteButton}>
+                                    <Pressable
+                                        style={styles.overlayDeleteButton}
+                                        onPress={(event) => {
+                                            event.stopPropagation();
+                                            onDelete("service", item.id);
+                                        }}
+                                    >
                                         <Text style={styles.overlayDeleteText}>Excluir</Text>
                                     </Pressable>
                                 </View>
