@@ -109,9 +109,7 @@ const ProfileView = ({
                                     </Pressable>
                                 </View>
                             </>
-
                         ) : (
-
                             <>
                                 <Text style={{ fontSize: 14, color: "#777" }}>
                                     Cadastre sua clínica
