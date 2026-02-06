@@ -6,11 +6,12 @@ import { Pet } from "@/types/pets";
 
 import AvailableSlotsModal from "../AvailableSlotsModal";
 import PetSelectModal from "../PetSelectModal";
+import { Appointment } from "@/types/appointments";
 
 type ScheduleModalProps = {
     visible: boolean;
     onClose: () => void;
-    onConfirm: () => void;
+    onConfirm: (data: Appointment) => void;
     availableSlots: AvailableSlot[];
     selectedSlot: AvailableSlot | null;
     setSelectedSlot: (slot: AvailableSlot) => void;
@@ -38,6 +39,21 @@ const ScheduleModal = ({
     showPets,
     setShowPets
 }: ScheduleModalProps) => {
+    const handleConfirm = () => {
+        if (!selectedSlot || !selectedPet) return;
+
+        const appointmentPayload: Appointment = {
+            id: "100",
+            petName: selectedPet.name,
+            service: "Banho e Tosa",
+            clinic: "PetCare",
+            datetime: selectedSlot.label,
+            status: "PENDENTE",
+        };
+
+        onConfirm(appointmentPayload);
+    };
+
     return (
         <Modal
             transparent
@@ -103,12 +119,12 @@ const ScheduleModal = ({
                         </Pressable>
 
                         <Pressable
-                            onPress={onConfirm}
+                            onPress={handleConfirm}
                             disabled={!selectedSlot}
                         >
                             <Text style={[
                                 styles.confirm,
-                                (!selectedSlot || !selectedPet ) && { opacity: 0.5 }
+                                (!selectedSlot || !selectedPet) && { opacity: 0.5 }
                             ]}>Confirmar</Text>
                         </Pressable>
                     </View>

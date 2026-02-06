@@ -7,13 +7,14 @@ import { Service } from "@/types/services";
 import BottomMenu from "@/components/menu/BottomMenu";
 import AppHeader from "@/components/header/AppHeader";
 import Card from "@/components/cards/Card";
+import { Pet } from "@/types/pets";
 
 interface ProfileViewProps {
     userType: UserType;
     user: any;
-    pets: any[];
+    pets: Pet[];
     clinic: any;
-    services: any[];
+    services: Service[];
     onCreateService: () => void;
     onEditService: (service: Service) => void;
     onDelete: (type: "pet" | "service", id: string) => void;

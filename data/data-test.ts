@@ -407,3 +407,15 @@ export const mockAppointments: Appointment[] = [
         status: "CONCLUIDO",
     },
 ];
+
+export const user = {
+    name: "Anderson Arruda",
+    email: "anderson@email.com",
+    address: "Rua das Flores, 123 - São Paulo/SP",
+    avatar: "https://cdn-icons-png.flaticon.com/512/847/847969.png",
+};
+
+export const clinic = {
+    name: "Pet Love Clínica",
+    address: "Av. Central, 456 - São Paulo/SP",
+};

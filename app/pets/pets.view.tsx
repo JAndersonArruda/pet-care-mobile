@@ -10,7 +10,7 @@ import BottomMenu from "@/components/menu/BottomMenu";
 interface PetsViewProps {
     pets: Pet[];
     onCreatePet: () => void;
-    selectedPet: string;
+    // selectedPet: string;
 }
 
 const PetsView = ({ pets, onCreatePet }: PetsViewProps) => {
